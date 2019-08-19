@@ -11,7 +11,7 @@ namespace AutoConcede
 {
     public class AutoConcede : IPlugin
     {
-        private static readonly ILog Log = Logger.GetLoggerInstanceForType();
+        private static readonly ILog Log = Hearthbuddy.Windows.MainWindow.ChuckLog;
 
         private int _defeatCount;
 
