@@ -78,7 +78,7 @@ namespace AutoConcede
 
         public string Description => "Auto concede to reduce the odds.";
 
-        public string Version => "0.1.0";
+        public string Version => "0.1.2";
 
         public void Initialize()
         {
