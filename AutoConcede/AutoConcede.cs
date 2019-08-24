@@ -28,11 +28,11 @@ namespace AutoConcede
             GameEventManager.GameOver += GameEventManager_GameOver;
         }
 
-        private void CustomEventManager_MulliganStarted(object sender, EventArgs e)
+        private void CustomEventManager_MulliganStarted(object sender, MulliganStartedEventArgs e)
         {
             if (_realWinRate >= _winRateThreshold)
             {
-                TritonHs.Concede(true);
+                e.ConcedeSuccessfully = TritonHs.Concede(true);
             }
         }
 
