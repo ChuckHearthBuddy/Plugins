@@ -21,6 +21,8 @@ namespace AutoConcede
 
         private double _realWinRate = 1;
 
+        private bool _resetWinCount = false;
+
         public void Start()
         {
             Log.DebugFormat("[AutoConcede] Initialize");
@@ -33,6 +35,14 @@ namespace AutoConcede
             if (_realWinRate >= _winRateThreshold)
             {
                 e.ConcedeSuccessfully = TritonHs.Concede(true);
+            }
+            else
+            {
+                if (!_resetWinCount)
+                {
+                    _winCount--;
+                    _resetWinCount = true;
+                }
             }
         }
 
@@ -53,7 +63,15 @@ namespace AutoConcede
 
         private void CalculateRealWinRate()
         {
-            double totalCount = _winCount + _defeatCount;
+            double totalCount;
+            if (!_resetWinCount)
+            {
+                totalCount = _winCount + _defeatCount - 1;
+            }
+            else
+            {
+                totalCount = _winCount + _defeatCount;
+            }
             _realWinRate = _winCount / totalCount;
 			
 			Log.InfoFormat($"[AutoConcede]  _winCount = {_winCount}");
