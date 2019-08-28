@@ -56,10 +56,10 @@ namespace AutoConcede
             double totalCount = _winCount + _defeatCount;
             _realWinRate = _winCount / totalCount;
 			
-			Log.InfoFormat("[AutoConcede]  _winCount = " + _winCount);
-			Log.InfoFormat("[AutoConcede]  _defeatCount = " + _defeatCount);
-			Log.InfoFormat("[AutoConcede]  totalCount = " + totalCount);
-            Log.InfoFormat("[AutoConcede] CalculateRealWinRate _realWinRate = " + _realWinRate);
+			Log.InfoFormat($"[AutoConcede]  _winCount = {_winCount}");
+			Log.InfoFormat($"[AutoConcede]  _defeatCount = {_defeatCount}");
+			Log.InfoFormat($"[AutoConcede]  totalCount = {totalCount}");
+            Log.InfoFormat($"[AutoConcede] CalculateRealWinRate _realWinRate = {_realWinRate}");
         }
 
         public void Tick()
