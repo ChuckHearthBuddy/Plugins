@@ -21,13 +21,14 @@ namespace AutoConcede
 
         public void Start()
         {
-            Log.DebugFormat("[AutoConcede] Initialize");
+            Log.InfoFormat("[AutoConcede] Initialize");
             CustomEventManager.Instance.MulliganStarted += CustomEventManager_MulliganStarted;
             GameEventManager.GameOver += GameEventManager_GameOver;
         }
 
         private void CustomEventManager_MulliganStarted(object sender, MulliganStartedEventArgs e)
         {
+			Log.InfoFormat("CustomEventManager_MulliganStarted");
             if (_realWinRate >= _winRateThreshold)
             {
                 e.ConcedeSuccessfully = TritonHs.Concede(true);
