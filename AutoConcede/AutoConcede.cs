@@ -1,11 +1,9 @@
-﻿using System;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using Triton.Bot;
 using Triton.Common;
-using Triton.Common.LogUtilities;
 using Triton.Game;
 using log4net;
-using SilverFish.ai;
+using SilverFish.Helpers;
 
 namespace AutoConcede
 {
@@ -55,11 +53,7 @@ namespace AutoConcede
         {
             double totalCount = _winCount + _defeatCount;
             _realWinRate = _winCount / totalCount;
-			
-			Log.InfoFormat($"[AutoConcede]  _winCount = {_winCount}");
-			Log.InfoFormat($"[AutoConcede]  _defeatCount = {_defeatCount}");
-			Log.InfoFormat($"[AutoConcede]  totalCount = {totalCount}");
-            Log.InfoFormat($"[AutoConcede] CalculateRealWinRate _realWinRate = {_realWinRate:P}");
+            Log.InfoFormat($"[AutoConcede] CalculateRealWinRate {_winCount}/{totalCount} = {_realWinRate:P}");
         }
 
         public void Tick()
@@ -78,7 +72,7 @@ namespace AutoConcede
 
         public string Description => "Auto concede to reduce the odds.";
 
-        public string Version => "0.1.2";
+        public string Version => "0.1.3";
 
         public void Initialize()
         {
